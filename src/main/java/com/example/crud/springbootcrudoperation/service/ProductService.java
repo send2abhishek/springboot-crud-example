@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.crud.springbootcrudoperation.entity.Product;
+import com.example.crud.springbootcrudoperation.repository.FilterData;
 import com.example.crud.springbootcrudoperation.repository.ProductRepository;
 
 @Service
@@ -25,9 +26,9 @@ public class ProductService {
 			return repository.saveAll(products);
 		}
 
-	public List<Product> getAllProduct() {
+	public List<FilterData> getAllProduct() {
 		
-		return repository.findAll();
+		return repository.findAllBy();
 	}
 	
 	public Product getProductById(int productId) {
@@ -35,7 +36,7 @@ public class ProductService {
 		return repository.findById(productId).orElse(null);
 	}
 	
-	public Product getProductByName(String productName) {
+	public FilterData getProductByName(String productName) {
 			
 			return repository.findByName(productName);
 		}

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.crud.springbootcrudoperation.entity.Product;
+import com.example.crud.springbootcrudoperation.repository.FilterData;
 import com.example.crud.springbootcrudoperation.service.ProductService;
 
 @RestController
@@ -35,7 +36,7 @@ public class ProductController {
 		}
 	
 	@GetMapping("/products")
-	public List<Product> findAllProducts(){
+	public List<FilterData> findAllProducts(){
 		
 		return service.getAllProduct();
 	}
@@ -45,7 +46,7 @@ public class ProductController {
 	}
 	
 	@GetMapping("/product/{productName}")
-	public Product findProductByName(@PathVariable String productName) {
+	public FilterData findProductByName(@PathVariable String productName) {
 		return service.getProductByName(productName);
 	}
 	
